@@ -1,0 +1,823 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1.618em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* NOTE
+html is set to 62.5% so that all the REM measurements
+are based on 10px sizing. So basically 1.5rem = 15px */
+html, body {
+  font-size: 62.5%;
+  height: 100%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    line-height: 1.618; //set the regular line height to the golden ratio
+    font-weight: 400;
+    font-size: 1.618em;
+    padding: 0;
+    word-wrap:break-word;
+    color: #333;
+}
+
+body, input, button {
+  line-height: 1.4;
+  font: 13px Helvetica,arial,freesans,clean,sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+    font-family: 'Dosis', cursive;
+    margin-top: 0;
+    margin-bottom: 2rem;  
+    color: #272727;  
+}
+
+h1 { font-size: 3.818rem; line-height: 3rem; }
+h2 { font-size: 3.618rem; line-height: 3rem; }
+h3 { font-size: 3.416rem; line-height: 2.2rem; }
+h4 { font-size: 3.218rem; line-height: 2.2rem; }
+h5 { font-size: 3.018rem; line-height: 2rem; }
+h6 { font-size: 2.818rem; line-height: 2rem; }
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+i {
+    font-size: 2.2rem;
+}
+
+.cover-flexes {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  height: 80%;
+  clear: both;
+  display: -webkit-flex;
+}
+
+#summary-container {
+  width: 100%;
+  height: 100%;
+}
+
+#cover-summary {
+    background: #737180 no-repeat center center;
+    overflow: hidden;
+    background-size: cover;
+    background-image: url("../img/beach-cover.jpg");
+    width: 100%;
+    height: 100%;
+}
+
+#toolbar-cover {
+    width: 100%;
+    height: 56px;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    display: flex; 
+    transition: all .25s ease-in-out;
+}
+
+#toolbar {
+    width: 100%;
+    height: 56px;
+    position: fixed;
+    z-index: 99;
+    display: flex; 
+    transition: all .25s ease-in-out;
+    /*opacity: 0.9;*/
+}
+
+#toolbar .title,
+#toolbar-cover .title {
+    font-family: 'Dosis', cursive;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    line-height: 56px;
+    text-align: center;
+    margin: 0;
+    flex-grow: 2;
+}
+
+#toolbar i,
+#toolbar-cover i {
+    color: #FFF;
+    font-size: 32px;
+}
+
+#left-sidebar-slide-out .close-sidebar {
+    position: relative;
+    text-align: center;
+    margin-right: 56px;
+}
+
+.close-right { text-align: right; }
+
+.close-right i { font-size: 4em; }
+
+.city-booking-overlay, .cover-info-overlay {
+  height: 75%;
+  background-color: #272727;
+  opacity: 0.6;
+  margin-top: 98px;
+  margin-bottom: 6%;
+  max-height: 300px;
+  position: absolute;
+}
+
+.city-booking-overlay { width: 29%; }
+
+.cover-info-overlay { 
+  width: 44%; 
+  margin-left: 5px;
+}
+
+.city-booking-container {
+  width: 88%;
+  height: 73%;
+  margin-left: 9%;
+  margin-top: 114px;
+  position: relative;
+}
+
+.city-booking-container h2 {
+  font-family: 'Passion One', cursive;
+  font-size: 2em;
+  color: #ffffff;
+}
+
+.paragraph {
+  color: #fff;
+  font-size: 14px;
+  text-justify: inter-word;
+  text-align: justify;
+  line-height: 1.2em;
+}
+
+.city-booking-container label {
+  color: #ffffff;
+}
+
+.city-booking-container .col {
+  line-height: 1.618;
+}
+
+.city-booking-container select {
+  width: 93%;
+}
+
+/*.sphere-arrow-center {
+  left: 50%;
+  position: absolute;
+  margin-top: -32px;
+  z-index: 98;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sphere-arrow {
+  width: 80px;
+  height: 80px;
+  border-radius: 5%;
+  left: -50%;
+  position: relative;
+  opacity: 0.6;
+  background-color: #272727;
+}
+
+.sphere-arrow i {
+  color: #FFF;
+  font-size: 3rem;  
+}*/
+
+.open-right, .open-left, .summary-slide-down {
+    flex: 0 0 56px;
+    line-height: 56px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.open-right-dummy {
+  flex: 0 0 56px;
+  line-height: 56px;
+  text-align: center;
+  position: relative;
+}
+
+#geocomplete { width: 200px}
+
+.container {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.primary-bg-color {
+    background-color: #039be5 !important;
+}
+
+.toppest-title {
+    padding-top: 96px;
+    padding-left: 0.5em;
+    padding-bottom: 16px;
+}
+
+#pickup_map, #destination_map { 
+  width: 100%; 
+  min-height: 360px;
+  height: 100%; 
+  margin: 10px 20px 35px 0;
+}
+
+.flexes {
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    clear: both;
+}
+
+.flex1 {
+    -webkit-flex: 1;
+    flex: 1;
+    padding: 0.25em 1.618em;
+
+}
+
+.flex2 {
+  padding: 0.25em 2em;
+  -webkit-flex: 6;
+    flex: 6;
+}
+
+.flex3 {
+  padding: 0.25em 2em;
+  -webkit-flex: 4;
+    flex: 4;
+}
+
+.padding-top-8 {
+  padding-top: 8px;
+}
+
+.padding-top-12 {
+  padding-top: 12px;
+}
+
+.padding-vertical-10 {
+  padding: 10px 0;
+}
+
+.breakdown {
+  height: 100%;
+  width: 92%;
+  padding: 20px;
+  margin: auto;
+  display: inherit;
+}
+
+.breakdown label {
+  display: block;
+  color: #474747;
+}
+
+.breakdown .flex1 {
+  text-align: center;
+}
+
+.info-content {
+  margin: auto;
+  padding: 1em 5em;
+  line-height: 1.6;
+  font-size: 1.2em;
+}
+
+.info-content h5 {
+  font-size: 4.218rem;
+  color: #272727;
+  padding-bottom: 20px;
+}
+
+.info-content i {
+  font-size: 3.4rem;
+  float: left;
+  margin-top: -5px;
+  margin-right: 20px;
+}
+
+
+/*.flex2 {
+    padding: 0;
+    margin-right: 1em; 
+}*/
+
+/*.flex3 {
+    padding: 0;
+    margin-left: 1em; 
+}*/
+
+.vertical-line {
+  border-right: thin solid #272727;
+  height: 228px;
+  width: 1px;
+  opacity: 0.6;
+  position: relative;
+  float: right;
+  margin-right: -41px;
+}
+
+#multiple li { 
+  cursor: pointer; 
+  text-decoration: underline; 
+}
+
+.input-field {
+  margin-bottom: 1rem;
+}
+.input-field label {
+  font-size: 1.618rem;
+  top: 0.5rem;
+  left: 0;
+}
+
+.input-td {
+    padding: 0;
+}
+
+.input-td label {
+    padding-left: 0;
+}
+
+.input-field label.active,
+.input-td label.active {
+    font-size: 1.618rem;
+    left: 0;
+}
+
+label {
+    font-size: 1.618rem;
+}
+
+.headers {
+    padding: 0.5em 1em;
+}
+
+textarea.materialize-textarea {
+    overflow-y: scroll;
+    max-height: 120px;
+}
+
+input:not([type]), 
+input[type=text], 
+input[type=password], 
+input[type=email], 
+input[type=url], 
+input[type=time], 
+input[type=date], 
+input[type=datetime], 
+input[type=datetime-local], 
+input[type=tel], 
+input[type=number], 
+input[type=search], 
+.select-wrapper input.select-dropdown,
+textarea.materialize-textarea {
+  font-size: 1.618rem;
+  padding-left: 8px;
+  margin: 0 0 5px 0;
+  color: #272727;
+}
+
+.input-field input[type=search]:focus + label i,
+.input-field input[type=search]:focus ~ i,
+.input-field input[type=search]:focus ~ i,
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label {
+    color: #272727;
+}
+
+/* label underline focus color */
+ .input-field input[type=text]:focus {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+   color: #272727;
+ }
+
+ .dropdown-content li>a, .dropdown-content li>span {
+    color: #272727;
+
+ }
+
+ /* valid color */
+ .input-field input[type=text].valid {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+   color: #272727;
+ }
+
+.fadeinright {
+    -webkit-animation-name: fadeInRight;
+    animation-name: fadeInRight;
+}
+
+.animated {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.delay-3 {
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+.book-button {
+  padding: 1em 0;
+  width: 100%;
+  opacity: 0.8;
+}
+
+.next-button {
+    padding: 2em 0;
+    width: 92%;
+    margin: auto;
+}
+
+.block {
+    display: block;
+}
+
+.footer {
+    width: 100%;
+    position: relative;
+    max-width: 100%;
+    display: block;
+    background-color: white;
+    bottom: 0;
+    margin-top: 2rem;
+}
+
+.footer-icons {
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-icons i {
+    font-size: 2.618rem;
+    padding: 0 7px;
+}
+
+.footer p {
+    vertical-align: bottom;
+    color: #333;
+    text-align: center;
+    font-size: 1.218rem;
+    display: inline;
+}
+
+.copyrights {
+    display: inherit;
+    text-align: center;
+}
+
+.paypal-container {
+  text-align: center;
+  padding: 10px 10px 0 10px;
+  min-height: 60px;
+  display: block;
+}
+
+.paypal-container label {
+  display: block;
+  border-bottom: 1px solid #eee;
+  padding: 1em 2em;
+}
+
+.paypal-container label img,
+.paypal-container label input {
+  vertical-align: middle;
+}
+
+.paypal-container [type="radio"]:not(:checked), 
+.paypal-container [type="radio"]:checked {
+  opacity: 1;
+  left: 0;
+  position: relative;
+}
+
+.paypal-container label img {
+  height: 40px;
+}
+
+#paypal-button-container,
+#card-button-container {
+  padding: 1em;
+}
+
+.side-nav li .navi {
+    display: block;
+    padding: 6px 0 6px 26px;
+    color: #272727;
+    font-size: 1.818rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 500;
+    line-height: initial;
+    height: auto;
+}
+
+.side-nav li .navi i {
+    font-size: 1.918rem;
+    margin-right: 1.618rem;
+    text-align: center;
+    float: left;
+    display: block;
+    width: 1.618rem;
+}
+
+.sidebar-toppest {
+  padding-top: 20px;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (max-width: 600px) {
+    .flexes {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
