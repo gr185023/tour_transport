@@ -207,13 +207,13 @@ function calculateEstimate(distance) {
     var bdVanCount = parseInt($('#bdVanCount').text());
     var bdSedanCount = parseInt($('#bdSedanCount').text());
 
-    (bdVanCount != "0") ? $('#bd-vanPrice').text('Per Van: PHP ' + vanPrice.toFixed(2)) 
-                        : $('#bd-vanPrice').text('Per Van: PHP 0.00');
-    (bdSedanCount != "0") ? $('#bd-sedanPrice').text('Per Car: PHP ' + sedanPrice.toFixed(2)) 
-                        : $('#bd-sedanPrice').text('Per Car: PHP 0.00');
+    (bdVanCount != "0") ? $('#bd-vanPrice').text('Per Van: Php' + vanPrice.toFixed(2)) 
+                        : $('#bd-vanPrice').text('Per Van: Php0.00');
+    (bdSedanCount != "0") ? $('#bd-sedanPrice').text('Per Car: Php' + sedanPrice.toFixed(2)) 
+                        : $('#bd-sedanPrice').text('Per Car: Php0.00');
 
     var subtotal = (vanPrice * bdVanCount) + (sedanPrice * bdSedanCount);
-    $('#bd-subtotal').text('Sub-total: PHP ' + subtotal.toFixed(2));
+    $('#bd-subtotal').text('Sub-total: Php' + subtotal.toFixed(2));
 }
 
 $(document).ready(function() {

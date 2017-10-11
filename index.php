@@ -479,13 +479,19 @@
 
                         <div class="flexes padding-vertical-10">
                             <div class="breakdown z-depth-1">
-                                <div class="flex1">
-                                    <label id="bd-city"><b>Cebu City</b></label>
-                                    <label id="bd-tourType">One-way</label>
-                                    <label id="bd-vanPrice">Php 0.00 (Select pick up and destination)</label>
-                                    <label id="bd-sedanPrice"></label>
-                                    <label id="bd-subtotal"></label>
-                                </div>
+                                <ul class="flex1">
+                                    <li><label id="bd-city"><b>Cebu City</b></label></li>
+                                    <li><label id="bd-tourType">One-way</label></li>
+                                    <li><label id="bd-vanPrice">Php 0.00 (Select pick up and destination)</label></li>
+                                    <li><label id="bd-sedanPrice"></label></li>
+                                    <li><label id="bd-subtotal"></label></li>
+                                    <li>
+                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payTen" checked />
+                                        <label class="payRadio" for="payTen">Pay 10%</label>
+                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payFull"  />
+                                        <label class="payRadio" for="payFull">Pay Full</label>
+                                    </li>
+                                </ul>
                                 <div class="flex1">
                                     <img id="bd-van-img" src="img/innova.png">Van</img>
                                     <button id="bdVanCount" type="button" class="btn-flat grey lighten-2">1</button>

@@ -339,6 +339,8 @@ i {
     width: 100%;
     height: 100%;
     clear: both;
+    -webkit-align-items: center;
+    align-items: center;
 }
 
 .flex1 {
@@ -387,6 +389,10 @@ i {
 
 .breakdown .flex1 {
   text-align: center;
+}
+
+.payRadio {
+  font-size: 1em !important;
 }
 
 .info-content {
@@ -500,6 +506,11 @@ textarea.materialize-textarea {
 }
 
 .checkbox-blue[type="checkbox"].filled-in:checked + label:after{
+     border: 2px solid #039be5;
+     background-color: #039be5;
+}
+
+.radio-blue[type="radio"]:checked + label:after{
      border: 2px solid #039be5;
      background-color: #039be5;
 }
