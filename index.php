@@ -481,7 +481,9 @@
                                 <div class="flex1">
                                     <label id="bd-city"><b>Cebu City</b></label>
                                     <label id="bd-tourType">One-way</label>
-                                    <label id="bd-price">Php 0.00 (Select pick up and destination)</label>
+                                    <label id="bd-vanPrice">Php 0.00 (Select pick up and destination)</label>
+                                    <label id="bd-sedanPrice"></label>
+                                    <label id="bd-subtotal"></label>
                                 </div>
                                 <div class="flex1">
                                     <img id="bd-van-img" src="img/innova.png">Van</img>
@@ -567,7 +569,7 @@
 
         <script src="js/plugins.js"></script>
         <script src="js/vendor/materialize.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&amp;key=AIzaSyCrjyb-LnK_jeqCM5-G8LWxvZ7IMiwoz1I"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places,geometry&amp;key=AIzaSyCrjyb-LnK_jeqCM5-G8LWxvZ7IMiwoz1I"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -1,76 +1,15 @@
 
 "use strict";
 
-// This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026
-(function(a, b, c) {
-    if (c in b && b[c]) {
-        var d, e = a.location,
-            f = /^(a|html)$/i;
-        a.addEventListener("click", function(a) {
-            d = a.target;
-            while (!f.test(d.nodeName)) d = d.parentNode;
-            "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href)
-        }, !1)
-    }
-})(document, window.navigator, "standalone")
-
-
-$.log = function(message) {
-  var $logger = $("#logger");
-  $logger.html($logger.html() + "\n * " + message );
-}
-
-/*
-* Animate the page to scroll smoothly to an element
-*
-* @param {String} elementSelector Css selector of the element
-*
-*/
-function smoothScrollTo(elementSelector) {
-    
-    // var topOffset = $(elementSelector).offset().top;
-    // $('body, html').animate({
-    //         scrollTop: topOffset
-    //     }, speed,removeHash);
-    var speed = 618;
-
-    $('#form-container').show();
-    $('#cover-flexes').fadeOut("fast");
-    $('#summary-container').slideUp("swing");
-
-    if (typeof google !== 'undefined')
-    {
-        google.maps.event.trigger(pickup_map, 'resize');
-        google.maps.event.trigger(destination_map, 'resize');
-    }
-}
-
-function smoothScrollToTop() {
-    var speed = 618;
-    $('#summary-container').slideDown("swing", function showNext() {
-        $('#cover-flexes').fadeIn("swing");
-    });
-
-    setTimeout(function() {
-        $('#form-container').hide();
-    }, speed+100);
-
-    window.scrollTo(0,0);
-}
-
-/*
-* Remove the hash from the address bar
-*
-*/
-function removeHash(){
-    history.pushState('', document.title, window.location.pathname);
-}
-
 // GOOGLE MAP
 if (typeof google !== 'undefined')
 {
     var pickup_map;
     var destination_map;
+    var currPickupLatlng;
+    var currDesLatlng;
+    var distance;
+
     function initMap() {
         var platlng = new google.maps.LatLng(10.3181, 123.9050);
         var dlatlng = new google.maps.LatLng(9.4703, 123.3743);
@@ -139,6 +78,16 @@ if (typeof google !== 'undefined')
             
             pickup_marker.setPosition(place.geometry.location);
             pickup_marker.setVisible(true);
+
+            var currentLat = pickup_marker.getPosition().lat();
+            var currentLng = pickup_marker.getPosition().lng();
+
+            currPickupLatlng = new google.maps.LatLng(currentLat, currentLng);
+            
+            if(currDesLatlng) {
+                distance = google.maps.geometry.spherical.computeDistanceBetween (currPickupLatlng, currDesLatlng);
+                calculateEstimate(distance);
+            }
         });
 
         google.maps.event.addListener(destination_autocomplete, 'place_changed', function() {
@@ -158,12 +107,103 @@ if (typeof google !== 'undefined')
             
             destination_marker.setPosition(place.geometry.location);
             destination_marker.setVisible(true);
+
+            var currentLat = destination_marker.getPosition().lat();
+            var currentLng = destination_marker.getPosition().lng();
+
+            currDesLatlng = new google.maps.LatLng(currentLat, currentLng);
+
+            if(currPickupLatlng) {
+                distance = google.maps.geometry.spherical.computeDistanceBetween (currPickupLatlng, currDesLatlng);
+                calculateEstimate(distance);
+            }
         });
     }
 
     google.maps.event.addDomListener(window, 'load', initMap);
 }
 // END GOOGLE MAP
+
+// This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026
+(function(a, b, c) {
+    if (c in b && b[c]) {
+        var d, e = a.location,
+            f = /^(a|html)$/i;
+        a.addEventListener("click", function(a) {
+            d = a.target;
+            while (!f.test(d.nodeName)) d = d.parentNode;
+            "href" in d && (d.href.indexOf("http") || ~d.href.indexOf(e.host)) && (a.preventDefault(), e.href = d.href)
+        }, !1)
+    }
+})(document, window.navigator, "standalone")
+
+
+$.log = function(message) {
+  var $logger = $("#logger");
+  $logger.html($logger.html() + "\n * " + message );
+}
+
+/*
+* Animate the page to scroll smoothly to an element
+*
+* @param {String} elementSelector Css selector of the element
+*
+*/
+function smoothScrollTo(elementSelector) {
+    
+    // var topOffset = $(elementSelector).offset().top;
+    // $('body, html').animate({
+    //         scrollTop: topOffset
+    //     }, speed,removeHash);
+    var speed = 618;
+
+    $('#form-container').show();
+    $('#cover-flexes').fadeOut("fast");
+    $('#summary-container').slideUp("swing");
+
+    if (typeof google !== 'undefined')
+    {
+        google.maps.event.trigger(pickup_map, 'resize');
+        google.maps.event.trigger(destination_map, 'resize');
+    }
+}
+
+function smoothScrollToTop() {
+    var speed = 618;
+    $('#summary-container').slideDown("swing", function showNext() {
+        $('#cover-flexes').fadeIn("swing");
+    });
+
+    setTimeout(function() {
+        $('#form-container').hide();
+    }, speed+100);
+
+    window.scrollTo(0,0);
+}
+
+/*
+* Remove the hash from the address bar
+*
+*/
+function removeHash(){
+    history.pushState('', document.title, window.location.pathname);
+}
+
+function calculateEstimate(distance) {
+    var kms = distance / 1000;
+    var vanPrice = Math.round(42 * kms);
+    var sedanPrice = Math.round(36 * kms);
+    var bdVanCount = parseInt($('#bdVanCount').text());
+    var bdSedanCount = parseInt($('#bdSedanCount').text());
+
+    (bdVanCount != "0") ? $('#bd-vanPrice').text('Per Van: PHP ' + vanPrice.toFixed(2)) 
+                        : $('#bd-vanPrice').text('Per Van: PHP 0.00');
+    (bdSedanCount != "0") ? $('#bd-sedanPrice').text('Per Car: PHP ' + sedanPrice.toFixed(2)) 
+                        : $('#bd-sedanPrice').text('Per Car: PHP 0.00');
+
+    var subtotal = (vanPrice * bdVanCount) + (sedanPrice * bdSedanCount);
+    $('#bd-subtotal').text('Sub-total: PHP ' + subtotal.toFixed(2));
+}
 
 $(document).ready(function() {
     $('#form-container').hide();
@@ -179,10 +219,12 @@ $(document).ready(function() {
 
 $('#vanCount').on('change', function() {
     $('#bdVanCount').text(this.value);
+    if(distance) { calculateEstimate(distance); }
 });
 
 $('#sedanCount').on('change', function() {
     $('#bdSedanCount').text(this.value);
+    if(distance) { calculateEstimate(distance); }
 });
 
 // Right Sidebar
