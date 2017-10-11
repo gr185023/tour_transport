@@ -24,7 +24,7 @@
         <!-- Place favicon.ico in the root directory -->
 
         <!-- Icons -->
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
+        <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
 
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
         <link rel="stylesheet" href="css/normalize.css">
@@ -39,6 +39,7 @@
         <!--?include("functions.php"); ?-->     
     </head>
     <body>
+        <noscript>Your browser does not support JavaScript!</noscript>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -95,8 +96,8 @@
                                     <div class="col s12">
                                         <label class="active">Tour Type</label>
                                         <select id="tourType" name="tourType"  class="browser-default">
-                                            <option value="1">Round trip</option>
-                                            <option value="2" selected>One way</option>
+                                            <option value="1">Round-Trip</option>
+                                            <option value="2" selected>One-way Trip</option>
                                         </select>
                                     </div>
                                     <div class="book-button">
@@ -493,6 +494,13 @@
                                     <img id="bd-car-img" src="img/almera.png">Car</img>
                                     <button id="bdSedanCount" type="button" class="btn-flat grey lighten-2">0</button>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="flexes">
+                            <div class="termsAgree">
+                                <input type="checkbox" class="filled-in checkbox-blue" id="agreeBox"/>
+                                <label for="agreeBox">I agree to the <a href="terms.php">Terms and Conditions</a></label>
                             </div>
                         </div>
 

@@ -499,6 +499,11 @@ textarea.materialize-textarea {
     color: #272727;
 }
 
+.checkbox-blue[type="checkbox"].filled-in:checked + label:after{
+     border: 2px solid #039be5;
+     background-color: #039be5;
+}
+
 /* label underline focus color */
  .input-field input[type=text]:focus {
    border-bottom: 1px solid #000;
@@ -541,6 +546,15 @@ textarea.materialize-textarea {
   padding: 1em 0;
   width: 100%;
   opacity: 0.8;
+}
+
+.termsAgree {
+  margin: auto;
+  width: 92%;
+}
+
+.termsAgree label {
+  font-size: 1em;
 }
 
 .next-button {

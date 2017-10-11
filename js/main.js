@@ -191,8 +191,19 @@ function removeHash(){
 
 function calculateEstimate(distance) {
     var kms = distance / 1000;
-    var vanPrice = Math.round(42 * kms);
-    var sedanPrice = Math.round(36 * kms);
+    var tourType = $('#tourType').val();
+    var vanPrice;
+    var sedanPrice;
+
+    if(tourType == "2") { // One-way trip
+        vanPrice = Math.round(42 * kms); 
+        sedanPrice = Math.round(36 * kms);
+    }
+    else { // Round trip
+        vanPrice = Math.round(((42 * 0.35) + 42) * kms); 
+        sedanPrice = Math.round(((36 * 0.35) + 36) * kms);
+    }
+
     var bdVanCount = parseInt($('#bdVanCount').text());
     var bdSedanCount = parseInt($('#bdSedanCount').text());
 
@@ -224,6 +235,12 @@ $('#vanCount').on('change', function() {
 
 $('#sedanCount').on('change', function() {
     $('#bdSedanCount').text(this.value);
+    if(distance) { calculateEstimate(distance); }
+});
+
+$('#tourType').on('change', function() {
+    $('#bd-tourType').text($('#tourType option:selected').text());
+
     if(distance) { calculateEstimate(distance); }
 });
 

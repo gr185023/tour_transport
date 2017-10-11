@@ -32,11 +32,10 @@
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-
-        <!--?include("values_receiver.php"); ?-->
-        <!--?include("functions.php"); ?-->     
     </head>
     <body>
+
+        <noscript>Your browser does not support JavaScript!</noscript>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -117,7 +116,7 @@
           <ul id="left-sidebar-slide-out" class="side-nav collapsible">
             <div class="sidebar-toppest"></div>
             <li>
-              <a href="index.php" class="navi waves-effect"><i class="ion-android-home"></i> Booking</a>
+              <a href="/" class="navi waves-effect"><i class="ion-android-home"></i> Booking</a>
             </li>
             <li>
               <a href="#" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
