@@ -1,5 +1,7 @@
 <?php
 
+///////////// DATABASE //////////////////
+
 function db_connect() {
 
     // Define connection as a static variable, to avoid connecting more than once 
@@ -8,8 +10,8 @@ function db_connect() {
     // Try and connect to the database, if a connection has not been established yet
     if(!isset($connection)) {
          // Load configuration as an array. 
-        $config = parse_ini_file('../config.ini'); 
-        $connection = mysqli_connect('localhost',$config['username'],$config['password'],$config['dbname']);
+        $config = parse_ini_file('conf/config.ini'); 
+        $connection = mysqli_connect($config['host'],$config['username'],$config['password'],$config['dbname']);
     }
 
     // If connection was not successful, handle the error
@@ -56,10 +58,36 @@ function db_quote($value) {
     return "'" . mysqli_real_escape_string($connection,$value) . "'";
 }
 
-function makeBuyButton($sedanCount = 1, $vanCount = 0, $tourType = 0, $txt = "Get it!")
+function db_escape_string($value) {
+	$connection = db_connect();
+    return mysqli_real_escape_string($connection,$value);
+}
+
+/////////////// END DATABASE /////////////////////
+
+
+
+function calculateEstimate($distance, $sedanCount, $vanCount, $tourType) {
+    $kms = $distance / 1000;
+    $vanPrice;
+    $sedanPrice;
+
+    if($tourType == "2") { // One-way trip
+        $vanPrice = round(42 * $kms, 2); 
+        $sedanPrice = round(36 * $kms, 2);
+    }
+    else { // Round trip
+        $vanPrice = round(((42 * 0.35) + 42) * $kms, 2); 
+        $sedanPrice = round(((36 * 0.35) + 36) * $kms, 2);
+    }
+
+    return (float)($vanPrice * floatval($vanCount)) + ($sedanPrice * floatval($sedanCount));
+}
+
+function makeBuyButton($downPayment = 0, $remainingBalance = 0, $txt = "Get it!")
 {
 	 // Load configuration as an array. 
-    $config = parse_ini_file('../config.ini'); 
+    $config = parse_ini_file('conf/config.ini'); 
 
 	$PF_USER = $config['pf_user'];
 	$PF_VENDOR = $config['pf_vendor'];
@@ -70,8 +98,6 @@ function makeBuyButton($sedanCount = 1, $vanCount = 0, $tourType = 0, $txt = "Ge
 
 	$secureTokenId = uniqId('', true);
 
-	$tourTypeCost = $tourType == 0 ? 39 : ($tourType == 1 ? 54 : 49);
-
 	$postData = "USER=" . $PF_USER
 			.	"&VENDOR=" . $PF_VENDOR
 			.	"&PARTNER=" . $PF_PARTNER
@@ -80,7 +106,7 @@ function makeBuyButton($sedanCount = 1, $vanCount = 0, $tourType = 0, $txt = "Ge
 			.	"&CREATESECURETOKEN=Y"
 			.	"&SECURETOKENID=" . $secureTokenId
 			.	"&TRXTYPE=S"
-			.	"&AMT=" . $tourTypeCost * ($vanCount + $sedanCount);
+			.	"&AMT=" . $downPayment;
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $PF_HOST_ADDR);
@@ -91,10 +117,6 @@ function makeBuyButton($sedanCount = 1, $vanCount = 0, $tourType = 0, $txt = "Ge
 
 	$resp = curl_exec($ch);
 
-	// echo "securetokenId::: " . $secureTokenId . "<br>";
-	// echo "curlopt::: " . CURLOPT_URL . "<br>";
-	// echo "ch::: " . $ch . "<br>";
-	// echo "resp::: " . $resp . "<br>";
 	if(!$resp)
 	{
 		return "<p>To order please contact us.</p>";

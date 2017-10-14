@@ -86,7 +86,7 @@ if (typeof google !== 'undefined')
             
             if(currDesLatlng) {
                 distance = google.maps.geometry.spherical.computeDistanceBetween (currPickupLatlng, currDesLatlng);
-                calculateEstimate(distance);
+                calculateEstimate(distance, currPickupLatlng, currDesLatlng);
             }
         });
 
@@ -115,7 +115,7 @@ if (typeof google !== 'undefined')
 
             if(currPickupLatlng) {
                 distance = google.maps.geometry.spherical.computeDistanceBetween (currPickupLatlng, currDesLatlng);
-                calculateEstimate(distance);
+                calculateEstimate(distance, currPickupLatlng, currDesLatlng);
             }
         });
     }
@@ -189,7 +189,7 @@ function removeHash(){
     history.pushState('', document.title, window.location.pathname);
 }
 
-function calculateEstimate(distance) {
+function calculateEstimate(distance, pickupLatlng, desLatlng) {
     var kms = distance / 1000;
     var tourType = $('#tourType').val();
     var vanPrice;
@@ -214,6 +214,24 @@ function calculateEstimate(distance) {
 
     var subtotal = (vanPrice * bdVanCount) + (sedanPrice * bdSedanCount);
     $('#bd-subtotal').text('Sub-total: Php' + subtotal.toFixed(2));
+
+    var platlng = pickupLatlng.lat() + "," + pickupLatlng.lng();
+    var dlatlng = desLatlng.lat() + "," + desLatlng.lng();
+
+    $.ajax({
+        url:"dist.php ",
+        type:"POST",
+        data: {
+          distance: distance,
+          platlng: platlng,
+          dlatlng: dlatlng,
+        }, 
+        success: function(response) {
+       },
+       error:function(){
+        alert("Message: ajax post.");
+       } 
+    });
 }
 
 $(document).ready(function() {
@@ -230,18 +248,18 @@ $(document).ready(function() {
 
 $('#vanCount').on('change', function() {
     $('#bdVanCount').text(this.value);
-    if(distance) { calculateEstimate(distance); }
+    if(distance) { calculateEstimate(distance, currPickupLatlng, currDesLatlng); }
 });
 
 $('#sedanCount').on('change', function() {
     $('#bdSedanCount').text(this.value);
-    if(distance) { calculateEstimate(distance); }
+    if(distance) { calculateEstimate(distance, currPickupLatlng, currDesLatlng); }
 });
 
 $('#tourType').on('change', function() {
     $('#bd-tourType').text($('#tourType option:selected').text());
 
-    if(distance) { calculateEstimate(distance); }
+    if(distance) { calculateEstimate(distance, currPickupLatlng, currDesLatlng); }
 });
 
 // Right Sidebar

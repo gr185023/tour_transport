@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -110,13 +112,13 @@
                             <div class="flex2">
                                 <div class="cover-info-overlay"></div>
                                 <div class="city-booking-container">
-                                    <h2>Easiest and most convenient way to book your next van rental!</h2>
+                                    <h2>Easiest and most convenient way to book your next van rental with your own driver!</h2>
                                     <p></p>
                                     <p class="paragraph">
-                                        We provide you hassle-free booking for your private car and/or van. You are just a click away to book your city tour, one-way trip or a round-trip with affordable fixed prices. No more haggling with your driver. 
+                                        We provide you hassle-free booking for your clean and brand new car and/or van rental with your own driver. 
                                     </p>
                                     <p class="paragraph">
-                                        We have fixed and affordable rates for different destinations. You only pay a small admin fee and the rest is payable upon arriving at your destination or after the service. We will email and text your confirmation. 
+                                        We have distance-based affordable rates for your destination. Please book 24 hours before your scheduled trip. We will email and text your confirmation within a few hours of your booking. 
                                     </p>
                                 </div>
                             </div>
@@ -180,7 +182,7 @@
                             </div>
                             <div class="flex1">
                                 <div class="input-field input-td col s12">
-                                    <select>
+                                    <select name ="nationality">
                                         <option value="" selected>- select one -</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
@@ -486,9 +488,9 @@
                                     <li><label id="bd-sedanPrice"></label></li>
                                     <li><label id="bd-subtotal"></label></li>
                                     <li>
-                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payTen" checked />
+                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payTen" value="ten" checked />
                                         <label class="payRadio" for="payTen">Pay 10%</label>
-                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payFull"  />
+                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payFull" value="full"/>
                                         <label class="payRadio" for="payFull">Pay Full</label>
                                     </li>
                                 </ul>

@@ -1,3 +1,10 @@
+<?php 
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
     <head>
@@ -19,9 +26,6 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <!-- Icons -->
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
-
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/materialize.min.css">
@@ -36,16 +40,18 @@
 <?php
 
     require_once("functions.php");
+    include("dist.php");
 
     db_connect();
 
     $firstName = db_quote($_POST['firstName']);
     $lastName = db_quote($_POST['lastName']);
     $city = db_quote($_POST['city']);
-    $sedanCount = db_quote($_POST['sedanCount']);
-    $vanCount = db_quote($_POST['vanCount']);
+    $sedanCount = db_escape_string($_POST['sedanCount']);
+    $vanCount = db_escape_string($_POST['vanCount']);
     $tourType = db_quote($_POST['tourType']);
     $contact = db_quote($_POST['contact']);
+    $nationality = db_quote($_POST['nationality']);
     $ageRange = db_quote($_POST['ageRange']);
     $pickupDate = db_quote($_POST['pickupDate']);
     $pickupTime = db_quote($_POST['pickupTime']);
@@ -54,28 +60,49 @@
     $pickupInstruction = db_quote($_POST['pickupInstruction']);
     $destination = db_quote($_POST['destination']);
     $destinationInstruction = db_quote($_POST['destinationInstruction']);
+    $payMentType = db_quote($_POST['payGroup']);
+    $downPayment = 0;
+    $remainingBalance = 0;
+    $subTotal = 0;
+    $distance = $_SESSION['distance'];
+    $platlng = $_SESSION['platlng'];
+    $dlatlng = $_SESSION['dlatlng'];
+
+    $subTotal = calculateEstimate($distance, $sedanCount, $vanCount, $tourType);
+    if(strcmp($_POST['payGroup'],"ten") == 0) { // 10%
+        $downPayment = $subTotal * 0.1;
+        $remainingBalance = $subTotal - $downPayment;
+    }
+    else { //full payment
+        $downPayment = $subTotal;
+        $remainingBalance = 0.00;
+    }
 
     // Insert the values into the database
-    $query = "INSERT INTO client (city,sedan_count,van_count,tour_type,firstname,lastname,contact_number,age_range,email,pickup_date,pickup_time,pickup_location,pickup_instruction,destination,destination_instruction) VALUES (" . $city . "," . $sedanCount . "," . $vanCount . "," . $tourType . "," . $firstName . "," . $lastName . "," . $contact . "," . $ageRange . "," . $email . "," . $pickupDate . "," . $pickupTime . "," . $pickupLocation . "," . $pickupInstruction . "," . $destination . "," . $destinationInstruction . ")";
+    $query = "INSERT INTO client (city,sedan_count,van_count,tour_type,firstname,lastname,contact_number,nationality,age_range,email,pickup_date,pickup_time,pickup_location,pickup_instruction,destination,destination_instruction,pickup_lat_lng,destination_lat_lng,remaining_balance,down_payment) VALUES (" . $city . "," . $sedanCount . "," . $vanCount . "," . $tourType . "," . $firstName . "," . $lastName . "," . $contact . "," . $nationality . "," . $ageRange . "," . $email . "," . $pickupDate . "," . $pickupTime . "," . $pickupLocation . "," . $pickupInstruction . "," . $destination . "," . $destinationInstruction . ",'" . $platlng . "','" . $dlatlng . "'," . $remainingBalance . "," . $downPayment . ")";
     
     $result = db_query($query);
+
     if($result === false) {
         // Handle failure - log the error, notify administrator, etc.
         $error = db_error();
     }
 
-	$vanCount = 0;
-	$sedanCount = 1;
-	$tourType = 0;
+    session_unset();
+    session_destroy();
 
-	if(isset($_POST['vanCount'])) $vanCount = $_POST['vanCount'];
-	if(isset($_POST['sedanCount'])) $sedanCount = $_POST['sedanCount'];
-	if(isset($_POST['tourType'])) $tourType = $_POST['tourType'];
+	// $vanCount = 0;
+	// $sedanCount = 1;
+	// $tourType = 0;
+
+	// if(isset($_POST['vanCount'])) $vanCount = $_POST['vanCount'];
+	// if(isset($_POST['sedanCount'])) $sedanCount = $_POST['sedanCount'];
+	// if(isset($_POST['tourType'])) $tourType = $_POST['tourType'];
 
     ///-- temp
     sleep(2);
 
-	$textBuyButton = makeBuyButton($sedanCount, $vanCount, $tourType, "GET IT!");
+	$textBuyButton = makeBuyButton($downPayment, $remainingBalance, "GET IT!");
 
 	echo $textBuyButton;
 ?>
@@ -103,7 +130,7 @@
         <script src="js/vendor/materialize.min.js"></script>
         <script src="js/main.js"></script>
         <script src="js/vendor/jquery.geocomplete.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places&amp;key=AIzaSyDXrVyoMdlPYZQOpsZUVF2SqlQpcca4YW4"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;libraries=places,geometry&amp;key=AIzaSyCrjyb-LnK_jeqCM5-G8LWxvZ7IMiwoz1I"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
