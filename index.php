@@ -164,7 +164,7 @@
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="email" name="email" type="email">
+                                    <input id="email" name="email" type="email" class="validate">
                                     <label for="email">Email*</label>
                                 </div>
                             </div>

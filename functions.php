@@ -81,7 +81,9 @@ function calculateEstimate($distance, $sedanCount, $vanCount, $tourType) {
         $sedanPrice = round(((36 * 0.35) + 36) * $kms, 2);
     }
 
-    return (float)($vanPrice * floatval($vanCount)) + ($sedanPrice * floatval($sedanCount));
+    $subtotal = ($vanPrice * floatval($vanCount)) + ($sedanPrice * floatval($sedanCount));
+
+    return round($subtotal);
 }
 
 function makeBuyButton($downPayment = 0, $remainingBalance = 0, $txt = "Get it!")
@@ -102,11 +104,11 @@ function makeBuyButton($downPayment = 0, $remainingBalance = 0, $txt = "Get it!"
 			.	"&VENDOR=" . $PF_VENDOR
 			.	"&PARTNER=" . $PF_PARTNER
 			.	"&PWD=" . $PF_PWD
-
+			.	"&CURRENCY=" . 'PHP'
 			.	"&CREATESECURETOKEN=Y"
 			.	"&SECURETOKENID=" . $secureTokenId
 			.	"&TRXTYPE=S"
-			.	"&AMT=" . $downPayment;
+			.	"&AMT=" .  round($downPayment);
 
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $PF_HOST_ADDR);
@@ -119,7 +121,7 @@ function makeBuyButton($downPayment = 0, $remainingBalance = 0, $txt = "Get it!"
 
 	if(!$resp)
 	{
-		return "<p>To order please contact us.</p>";
+		return "<p>To book please contact us.</p>";
 	}
 
 	parse_str($resp, $arr);

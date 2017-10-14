@@ -70,7 +70,7 @@ if(!isset($_SESSION))
 
     $subTotal = calculateEstimate($distance, $sedanCount, $vanCount, $tourType);
     if(strcmp($_POST['payGroup'],"ten") == 0) { // 10%
-        $downPayment = $subTotal * 0.1;
+        $downPayment = round($subTotal * 0.1);
         $remainingBalance = $subTotal - $downPayment;
     }
     else { //full payment
