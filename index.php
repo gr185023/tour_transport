@@ -144,13 +144,13 @@
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp">
-                                  <input id="firstName" name="firstName" type="text" class="validate">
+                                  <input id="firstName" name="firstName" type="text" class="validate" required/>
                                   <label for="firstName">First Name*</label>
                                 </div>
                             </div>
                             <div class="flex1"> 
                                 <div class="input-field animated fadeInUp">
-                                    <input id="lastName" name="lastName" type="text" class="validate">
+                                    <input id="lastName" name="lastName" type="text" class="validate" required/>
                                     <label for="lastName">Last Name*</label>
                                 </div>
                             </div>
@@ -158,13 +158,13 @@
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="contact" name="contact" type="text" class="validate">
+                                    <input id="contact" name="contact" type="text" class="validate" required/>
                                     <label for="contact">Contact Number*</label>
                                 </div>
                             </div>
                             <div class="flex1">
                                 <div class="input-field animated fadeInUp delay-2">
-                                    <input id="email" name="email" type="email" class="validate">
+                                    <input id="email" name="email" type="email" class="validate" required/>
                                     <label for="email">Email*</label>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                         <div class="flexes">
                             <div class="flex1">
                                 <div class="input-field input-td col s12">
-                                    <select name="ageRange">
+                                    <select name="ageRange" required>
                                         <option value="0" selected>25+</option>
                                         <option value="1">18-20</option>
                                         <option value="2">21-24</option>
@@ -182,7 +182,7 @@
                             </div>
                             <div class="flex1">
                                 <div class="input-field input-td col s12">
-                                    <select name ="nationality">
+                                    <select name ="nationality" required>
                                         <option value="" selected>- select one -</option>
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
@@ -442,13 +442,13 @@
                         <div class="flexes">
                             <div class="flex1 padding-top-8">
                                 <div class="input-field input-td animated fadeInUp delay-4">
-                                    <input id="pickupDate" name="pickupDate" type="date" class="validate">
+                                    <input id="pickupDate" name="pickupDate" type="date" class="validate" required/>
                                     <label for="pickupDate" class="active">Pickup Date*</label>
                                 </div>
                             </div>
                             <div class="flex1 padding-top-8">
                                 <div class="input-field input-td animated fadeInUp delay-4">
-                                    <input id="pickupTime" name="pickupTime" type="time" class="validate">
+                                    <input id="pickupTime" name="pickupTime" type="time" class="validate" required/>
                                     <label for="pickupTime" class="active">Pickup Time*</label>
                                 </div>  
                             </div>
@@ -458,7 +458,7 @@
                             <div class="flex1">
                                 <div class="input-td animated fadeInUp delay-4">
                                     <label>Pickup Location*</label>
-                                    <input id="pickupLocation" name="pickupLocation" class="controls" type="text" placeholder="Type location here"/>
+                                    <input id="pickupLocation" name="pickupLocation" class="controls" type="text" placeholder="Type location here" required/>
                                     <div id="pickup_map"></div>
                                 </div>
                                 <div class="input-field input-td animated fadeInUp delay-5">
@@ -469,7 +469,7 @@
                             <div class="flex1">
                                 <div class="input-td animated fadeInUp delay-4">
                                     <label>Main Destination*</label>
-                                    <input id="destination" name="destination" class="controls" type="text" placeholder="Type location here"/>
+                                    <input id="destination" name="destination" class="controls" type="text" placeholder="Type location here" required/>
                                     <div id="destination_map"></div>
                                 </div>
                                 <div class="input-field input-td animated fadeInUp delay-5">
@@ -507,7 +507,7 @@
 
                         <div class="flexes">
                             <div class="termsAgree">
-                                <input type="checkbox" class="filled-in checkbox-blue" id="agreeBox"/>
+                                <input type="checkbox" class="filled-in checkbox-blue" id="agreeBox" required/>
                                 <label for="agreeBox">I agree to the <a href="terms.php">Terms and Conditions</a></label>
                             </div>
                         </div>

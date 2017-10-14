@@ -44,6 +44,9 @@ if(!isset($_SESSION))
 
     db_connect();
 
+    $bookingNumber = uniqId('', true);
+    $bookingDate = date("Y-m-d H:i:s");
+    $currency = 'PHP'; ///-- make this dynamic
     $firstName = db_quote($_POST['firstName']);
     $lastName = db_quote($_POST['lastName']);
     $city = db_quote($_POST['city']);
@@ -79,8 +82,9 @@ if(!isset($_SESSION))
     }
 
     // Insert the values into the database
-    $query = "INSERT INTO client (city,sedan_count,van_count,tour_type,firstname,lastname,contact_number,nationality,age_range,email,pickup_date,pickup_time,pickup_location,pickup_instruction,destination,destination_instruction,pickup_lat_lng,destination_lat_lng,remaining_balance,down_payment) VALUES (" . $city . "," . $sedanCount . "," . $vanCount . "," . $tourType . "," . $firstName . "," . $lastName . "," . $contact . "," . $nationality . "," . $ageRange . "," . $email . "," . $pickupDate . "," . $pickupTime . "," . $pickupLocation . "," . $pickupInstruction . "," . $destination . "," . $destinationInstruction . ",'" . $platlng . "','" . $dlatlng . "'," . $remainingBalance . "," . $downPayment . ")";
+    $query = "INSERT INTO client (booking_number,booking_date,currency,city,sedan_count,van_count,tour_type,firstname,lastname,contact_number,nationality,age_range,email,pickup_date,pickup_time,pickup_location,pickup_instruction,destination,destination_instruction,pickup_lat_lng,destination_lat_lng,remaining_balance,down_payment) VALUES ('" . $bookingNumber . "','" . $bookingDate . "','" . $currency . "'," . $city . "," . $sedanCount . "," . $vanCount . "," . $tourType . "," . $firstName . "," . $lastName . "," . $contact . "," . $nationality . "," . $ageRange . "," . $email . "," . $pickupDate . "," . $pickupTime . "," . $pickupLocation . "," . $pickupInstruction . "," . $destination . "," . $destinationInstruction . ",'" . $platlng . "','" . $dlatlng . "'," . $remainingBalance . "," . $downPayment . ")";
     
+    echo ":::q= " . $query;
     $result = db_query($query);
 
     if($result === false) {
@@ -101,9 +105,8 @@ if(!isset($_SESSION))
 
     ///-- temp
     sleep(2);
-
+    
 	$textBuyButton = makeBuyButton($downPayment, $remainingBalance, "GET IT!");
-
 	echo $textBuyButton;
 ?>
 </div>

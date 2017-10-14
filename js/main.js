@@ -244,6 +244,9 @@ $(document).ready(function() {
         e.preventDefault();
         smoothScrollTo('#form-container');
     });
+
+    $('select').material_select();
+
 });
 
 $('#vanCount').on('change', function() {
