@@ -1,8 +1,12 @@
 <?php
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+if(!isset($_SESSION['tt'])) {
+	// header("location: index.php");
+	// die;
+}
 
 if (isset($_POST["distance"])) {
 	$_SESSION['distance'] = $_POST["distance"];

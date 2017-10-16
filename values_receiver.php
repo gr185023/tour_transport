@@ -1,8 +1,14 @@
 <?php 
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
+
+if(!isset($_SESSION)) {
+    session_start();
+}
+if(!isset($_SESSION['tt'])) {
+    session_unset();
+    session_destroy();
+    header("location: index.php");
+    die;
+}
 ?>
 
 <!doctype html>
@@ -42,6 +48,14 @@ if(!isset($_SESSION))
     require_once("functions.php");
     include("dist.php");
 
+    if(!isset($_SESSION['distance'])) {
+        echo "<script alert('We apologize but there seems to be an issue. We are working on it.') />";
+        session_unset();
+        session_destroy();
+        header("location: index.php");
+        die;
+    }
+
     db_connect();
 
     $bookingNumber = uniqId('', true);
@@ -67,9 +81,9 @@ if(!isset($_SESSION))
     $downPayment = 0;
     $remainingBalance = 0;
     $subTotal = 0;
-    $distance = $_SESSION['distance'];
-    $platlng = $_SESSION['platlng'];
-    $dlatlng = $_SESSION['dlatlng'];
+    $distance = db_escape_string($_SESSION['distance']);
+    $platlng = db_quote($_SESSION['platlng']);
+    $dlatlng = db_quote($_SESSION['dlatlng']);
 
     $subTotal = calculateEstimate($distance, $sedanCount, $vanCount, $tourType);
     if(strcmp($_POST['payGroup'],"ten") == 0) { // 10%
@@ -82,17 +96,13 @@ if(!isset($_SESSION))
     }
 
     // Insert the values into the database
-    $query = "INSERT INTO client (booking_number,booking_date,currency,city,sedan_count,van_count,tour_type,firstname,lastname,contact_number,nationality,age_range,email,pickup_date,pickup_time,pickup_location,pickup_instruction,destination,destination_instruction,pickup_lat_lng,destination_lat_lng,remaining_balance,down_payment) VALUES ('" . $bookingNumber . "','" . $bookingDate . "','" . $currency . "'," . $city . "," . $sedanCount . "," . $vanCount . "," . $tourType . "," . $firstName . "," . $lastName . "," . $contact . "," . $nationality . "," . $ageRange . "," . $email . "," . $pickupDate . "," . $pickupTime . "," . $pickupLocation . "," . $pickupInstruction . "," . $destination . "," . $destinationInstruction . ",'" . $platlng . "','" . $dlatlng . "'," . $remainingBalance . "," . $downPayment . ")";
+    $query = "INSERT INTO client (booking_number,booking_date,currency,city,sedan_count,van_count,tour_type,firstname,lastname,contact_number,nationality,age_range,email,pickup_date,pickup_time,pickup_location,pickup_instruction,destination,destination_instruction,pickup_lat_lng,destination_lat_lng,remaining_balance,down_payment) VALUES ('" . $bookingNumber . "','" . $bookingDate . "','" . $currency . "'," . $city . "," . $sedanCount . "," . $vanCount . "," . $tourType . "," . $firstName . "," . $lastName . "," . $contact . "," . $nationality . "," . $ageRange . "," . $email . "," . $pickupDate . "," . $pickupTime . "," . $pickupLocation . "," . $pickupInstruction . "," . $destination . "," . $destinationInstruction . "," . $platlng . "," . $dlatlng . "," . $remainingBalance . "," . $downPayment . ")";
     
     $result = db_query($query);
-
     if($result === false) {
         // Handle failure - log the error, notify administrator, etc.
         $error = db_error();
     }
-
-    session_unset();
-    session_destroy();
 
 	// $vanCount = 0;
 	// $sedanCount = 1;
@@ -102,11 +112,21 @@ if(!isset($_SESSION))
 	// if(isset($_POST['sedanCount'])) $sedanCount = $_POST['sedanCount'];
 	// if(isset($_POST['tourType'])) $tourType = $_POST['tourType'];
 
-    ///-- temp
+    ///-- temp or perm?
     sleep(2);
 
-	$textBuyButton = makeBuyButton($downPayment, $remainingBalance, "GET IT!");
-	echo $textBuyButton;
+    session_unset();
+    session_destroy();
+
+    if(!isset($error)) {
+    	$textBuyButton = makeBuyButton($downPayment, $remainingBalance, "GET IT!");
+    	echo $textBuyButton;
+    }
+    else {
+        echo "<script alert('We apologize but there seems to be an issue. We are working on it.') />";
+        header("location: index.php");
+        die;
+    }
 ?>
 </div>
 <!-- footer -->

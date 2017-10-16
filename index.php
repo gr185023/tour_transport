@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+$_SESSION['tt']= 1;
+?>
 
 <!doctype html>
 <html class="no-js" lang="">
@@ -112,13 +115,13 @@
                             <div class="flex2">
                                 <div class="cover-info-overlay"></div>
                                 <div class="city-booking-container">
-                                    <h2>Easiest and most convenient way to book your next van rental with your own driver!</h2>
+                                    <h2>Easiest and most convenient way to book your next van rental with your own personal driver!</h2>
                                     <p></p>
                                     <p class="paragraph">
                                         We provide you hassle-free booking for your clean and brand new car and/or van rental with your own driver. 
                                     </p>
                                     <p class="paragraph">
-                                        We have distance-based affordable rates for your destination. Please book 24 hours before your scheduled trip. We will email and text your confirmation within a few hours of your booking. 
+                                        We have distance-based affordable rates for your destination. Please book at least two(2) days or 48 hours before your scheduled trip. 
                                     </p>
                                 </div>
                             </div>
