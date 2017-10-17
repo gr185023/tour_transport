@@ -71,14 +71,19 @@ function calculateEstimate($distance, $sedanCount, $vanCount, $tourType) {
     $kms = $distance / 1000;
     $vanPrice;
     $sedanPrice;
+    $flagDownVan = 650;
+    $flagDownCar = 450;
+    $percRate = 0.35; //default
+
+    if($kms < 20) { $percRate = 1; }
 
     if($tourType == "2") { // One-way trip
-        $vanPrice = round(42 * $kms, 2); 
-        $sedanPrice = round(36 * $kms, 2);
+        $vanPrice = round($flagDownVan + (430 * ($kms/10)), 2); 
+        $sedanPrice = round($flagDownCar + (360 * ($kms/10)), 2);
     }
     else { // Round trip
-        $vanPrice = round(((42 * 0.35) + 42) * $kms, 2); 
-        $sedanPrice = round(((36 * 0.35) + 36) * $kms, 2);
+        $vanPrice = round((((430 * $percRate) + 430) * ($kms/10)) + $flagDownVan, 2); 
+        $sedanPrice = round((((360 * $percRate) + 360) * ($kms/10)) + $flagDownCar, 2);
     }
 
     $subtotal = ($vanPrice * floatval($vanCount)) + ($sedanPrice * floatval($sedanCount));

@@ -488,9 +488,9 @@ $_SESSION['tt']= 1;
                                     <li><label id="bd-sedanPrice"></label></li>
                                     <li><label id="bd-subtotal"></label></li>
                                     <li>
-                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payTen" value="ten" checked />
+                                        <input class="radio-blue" name="payGroup" type="radio" id="payTen" value="ten" checked />
                                         <label class="payRadio" for="payTen">Pay 10%</label>
-                                        <input class="with-gap radio-blue" name="payGroup" type="radio" id="payFull" value="full"/>
+                                        <input class="radio-blue" name="payGroup" type="radio" id="payFull" value="full"/>
                                         <label class="payRadio" for="payFull">Pay Full</label>
                                     </li>
                                 </ul>

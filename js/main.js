@@ -194,14 +194,17 @@ function calculateEstimate(distance, pickupLatlng, desLatlng) {
     var tourType = $('#tourType').val();
     var vanPrice;
     var sedanPrice;
+    var percRate = 0.35; //default
+
+    if(kms < 20) { percRate = 1; }
 
     if(tourType == "2") { // One-way trip
-        vanPrice = Math.round(42 * kms); 
-        sedanPrice = Math.round(36 * kms);
+        vanPrice = Math.round((430 * (kms/10)) + 650); 
+        sedanPrice = Math.round((360 * (kms/10)) + 450);
     }
     else { // Round trip
-        vanPrice = Math.round(((42 * 0.35) + 42) * kms); 
-        sedanPrice = Math.round(((36 * 0.35) + 36) * kms);
+        vanPrice = Math.round((((430 * percRate) + 430) * (kms/10)) + 650); 
+        sedanPrice = Math.round((((360 * percRate) + 360) * (kms/10)) + 450);
     }
 
     var bdVanCount = parseInt($('#bdVanCount').text());
