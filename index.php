@@ -118,7 +118,7 @@ $_SESSION['tt']= 1;
                                         We provide you hassle-free booking for your clean and brand new car and/or van rental with your own driver. 
                                     </p>
                                     <p class="paragraph">
-                                        We have distance-based affordable rates for your destination. Please book at least two(2) days or 48 hours before your scheduled trip. 
+                                        We have distance-based affordable rates for your destination. Please book at least two(2) days or 48 hours before your scheduled trip. Check our information page for more details.
                                     </p>
                                 </div>
                             </div>
@@ -508,7 +508,7 @@ $_SESSION['tt']= 1;
                         <div class="flexes">
                             <div class="termsAgree">
                                 <input type="checkbox" class="filled-in checkbox-blue" id="agreeBox" required/>
-                                <label for="agreeBox">I agree to the <a href="terms.php">Terms and Conditions</a></label>
+                                <label for="agreeBox">I agree to the <a target="_blank" href="terms.php">Terms and Conditions</a></label>
                             </div>
                         </div>
 
@@ -528,7 +528,7 @@ $_SESSION['tt']= 1;
                                 <i class="ion-social-github"></i> -->
                             </div>
                             <div class="copyrights">
-                                <p>Copyrights &copy 2017. All rights reserved.</p> &nbsp;| <a href="terms.php">Terms and Conditions</a>
+                                <p>Copyrights &copy 2017. All rights reserved.</p> &nbsp;| <a target="_blank" href="terms.php">Terms and Conditions</a>
                             </div>
                         </div>
                         <!-- end of footer -->
@@ -561,19 +561,16 @@ $_SESSION['tt']= 1;
                         <i class="ion-information-circled"></i>
                     </h5>
 
-                    <p>Bacon ipsum dolor amet leberkas salami cupim shankle pork loin sausage sirloin. Chicken spare ribs picanha swine chuck, leberkas cupim. Biltong kevin pork belly cupim short loin, doner spare ribs meatloaf filet mignon. Flank shankle ground round, boudin rump pork chop cow pig strip steak landjaeger.
+                    <p>Fun tour is a travel booking site currently catered to Cebu City, Philippines (and will soon be available in Manila and the rest of the Philippines). We ensure you have a comfortable and convenient transportation to your chosen destinations in the city. We'll have your driver contact you thru text and/or call 24-hours before your booking date and time.
                     </p>
 
-                    <p>Ribeye chuck jowl, frankfurter strip steak prosciutto pancetta andouille swine short loin turducken. T-bone chuck cow tail hamburger ham hock filet mignon, cupim porchetta meatball ribeye jowl. Shoulder sirloin chicken, jerky picanha turducken pig kevin porchetta pork frankfurter sausage. Burgdoggen ribeye rump ham strip steak, chicken swine. Pig pork loin corned beef, biltong bresaola beef beef ribs pastrami ball tip prosciutto meatloaf shank tongue cupim. Kielbasa sirloin doner tail filet mignon jowl spare ribs beef ribs cupim.
+                    <p>You can pay 10% or in full upon your booking. We require that you pay at least 10% of your total payment total upon booking. The rest is payable to your driver upon arrival to your final destination. You may cancel your booking at most 12 hours before your scheduled trip and we will refund your payment in full. Otherwise, we have the right to take 10% of your grand total payment or even forfeit a refund entirely.
                     </p>
 
-                    <p>Ribeye porchetta meatloaf, tongue alcatra beef spare ribs turducken pork fatback cow ball tip pork chop cupim. Landjaeger tongue tri-tip pork loin, tail sausage pancetta hamburger andouille. Tongue t-bone kevin swine biltong ham hock fatback tail pork loin alcatra sausage turkey meatball flank. Bresaola tenderloin short loin biltong picanha pork beef ribs.
+                    <p>If you wish to reschedule or make changes to any of your booking. Please email us at support@funtour.ph or text/call our local numbers at least three (3) hours of your scheduled booking. Please have your booking number ready for quick and convenient reference.
                     </p>
 
-                    <p>Biltong kevin porchetta, ball tip alcatra pork chop swine frankfurter pork belly pancetta brisket meatloaf ground round. Brisket turkey fatback shank alcatra meatball biltong ham pastrami tenderloin. Meatloaf strip steak chuck doner boudin capicola ground round pig jowl bacon ham hock andouille. Pork loin shank leberkas pancetta jerky.
-                    </p>
-
-                    <p>Jerky hamburger shankle picanha jowl meatball, tail short loin beef. Pork belly tail chuck doner. Shankle tail shank ribeye pork chop drumstick venison pancetta flank. Bresaola turducken jerky t-bone pork salami. Alcatra cupim meatball, tongue beef ribs jerky pastrami filet mignon pancetta flank frankfurter ham hock burgdoggen fatback. Doner sausage kielbasa jerky.
+                    <p>I hope you enjoy your tour in our naturally beautiful country. And always remember that it's more fun in the Philippines! :)
                     </p>
                 </div>
               </div>

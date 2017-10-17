@@ -106,7 +106,7 @@
                     <i class="ion-social-github"></i> -->
                 </div>
                 <div class="copyrights">
-                    <p>Copyrights &copy 2017. All rights reserved.</p> &nbsp;| <a href="terms.php">Terms and Conditions</a>
+                    <p>Copyrights &copy 2017. All rights reserved.</p> &nbsp;| <a target="_blank" href="terms.php">Terms and Conditions</a>
                 </div>
             </div>
             <!-- end of footer -->
@@ -116,11 +116,11 @@
           <ul id="left-sidebar-slide-out" class="side-nav collapsible">
             <div class="sidebar-toppest"></div>
             <li>
-              <a href="/" class="navi waves-effect"><i class="ion-android-home"></i> Booking</a>
-            </li>
-            <li>
-              <a href="#" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
-            </li>
+                  <a href="index.php" class="navi waves-effect"><i class="ion-android-home"></i> Booking</a>
+                </li>
+                <li>
+                  <a href="contact.html" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
+                </li>
           </ul>
           <!-- End of Left Sidebar --> 
     </div>
