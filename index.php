@@ -39,9 +39,6 @@ $_SESSION['tt']= 1;
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-
-        <!--?include("values_receiver.php"); ?-->
-        <!--?include("functions.php"); ?-->     
     </head>
     <body>
         <noscript>Your browser does not support JavaScript!</noscript>
@@ -522,13 +519,13 @@ $_SESSION['tt']= 1;
                         <!-- footer -->
                         <div class="footer z-depth-1">
                             <div class="footer-icons">
-                                <i class="ion-social-facebook"></i>
+                                <!-- <i class="ion-social-facebook"></i>
                                 <i class="ion-social-pinterest"></i>
                                 <i class="ion-social-instagram"></i>
                                 <i class="ion-social-linkedin"></i>
                                 <i class="ion-social-googleplus"></i>
                                 <i class="ion-social-twitter"></i>
-                                <i class="ion-social-github"></i>
+                                <i class="ion-social-github"></i> -->
                             </div>
                             <div class="copyrights">
                                 <p>Copyrights &copy 2017. All rights reserved.</p> &nbsp;| <a href="terms.php">Terms and Conditions</a>
@@ -547,7 +544,7 @@ $_SESSION['tt']= 1;
                   <a href="#" class="navi waves-effect"><i class="ion-android-home"></i> Booking</a>
                 </li>
                 <li>
-                  <a href="#" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
+                  <a href="contact.html" class="navi waves-effect"><i class="ion-bookmark"></i> Contact Us</a>
                 </li>
               </ul>
               <!-- End of Left Sidebar -->  
@@ -583,7 +580,6 @@ $_SESSION['tt']= 1;
               <!-- End of Right Sidebar -->    
             </div>
             <!-- End of Main Container -->
-
         </div>
 
         <script src="js/plugins.js"></script>

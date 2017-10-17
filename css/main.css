@@ -120,7 +120,7 @@ body {
 }
 
 body, input, button {
-  line-height: 1.4;
+  line-height: 1.6;
   font: 13px Helvetica,arial,freesans,clean,sans-serif;
 }
 
@@ -360,6 +360,10 @@ i {
   padding: 0.25em 2em;
   -webkit-flex: 4;
     flex: 4;
+}
+
+.padding-horizontal-20 {
+  padding: 0 20px;
 }
 
 .padding-top-8 {
@@ -668,6 +672,11 @@ textarea.materialize-textarea {
 
 .sidebar-toppest {
   padding-top: 20px;
+}
+
+.contact-numbers {
+  line-height: 1.6;
+  padding-bottom: 20px;
 }
 
 

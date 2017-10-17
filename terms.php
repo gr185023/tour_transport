@@ -97,13 +97,13 @@
             <!-- footer -->
             <div class="footer z-depth-1">
                 <div class="footer-icons">
-                    <i class="ion-social-facebook"></i>
+                    <!-- <i class="ion-social-facebook"></i>
                     <i class="ion-social-pinterest"></i>
                     <i class="ion-social-instagram"></i>
                     <i class="ion-social-linkedin"></i>
                     <i class="ion-social-googleplus"></i>
                     <i class="ion-social-twitter"></i>
-                    <i class="ion-social-github"></i>
+                    <i class="ion-social-github"></i> -->
                 </div>
                 <div class="copyrights">
                     <p>Copyrights &copy 2017. All rights reserved.</p> &nbsp;| <a href="terms.php">Terms and Conditions</a>
