@@ -8,7 +8,7 @@ $_SESSION['tt']= 1;
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Fun Tour</title>
+        <title>Fun Tour - Van and car rental</title>
         <meta name="description" content="">
         <meta name="description" content="Fun Tour - Your tour! your convenience!">
         <meta name="HandheldFriendly" content="True">
