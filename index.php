@@ -440,9 +440,9 @@ $_SESSION['tt']= 1;
 
                         <div class="flexes">
                             <div class="flex1 padding-top-8">
-                                <div class="input-field input-td animated fadeInUp delay-4">
-                                    <input id="pickupDate" name="pickupDate" type="date" class="validate" required/>
+                                <div class="margin-top-neg-16">
                                     <label for="pickupDate" class="active">Pickup Date*</label>
+                                    <input id="pickupDate" name="pickupDate" type="text" class="datepicker" data-value=""required>
                                 </div>
                             </div>
                             <div class="flex1 padding-top-8">

@@ -124,6 +124,22 @@ if (typeof google !== 'undefined')
 }
 // END GOOGLE MAP
 
+var today = new Date();
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    clear: 'Clear',
+    close: 'Ok',
+    today: '',
+    formatSubmit: 'yyyy-mm-dd',
+    closeOnSelect: false, // Close upon selecting a date,
+    disable: [
+            { from: [2016,1,1], to: new Date(today.getTime() + 1*24*60*60*1000) } // active day after tomorrow
+        ],
+    min: -15,
+    hiddenName: true
+  });
+
 // This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026
 (function(a, b, c) {
     if (c in b && b[c]) {
