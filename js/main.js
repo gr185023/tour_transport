@@ -137,7 +137,8 @@ $('.datepicker').pickadate({
             { from: [2016,1,1], to: new Date(today.getTime() + 1*24*60*60*1000) } // active day after tomorrow
         ],
     min: -15,
-    hiddenName: true
+    hiddenName: true,
+    showOn: 'button'
   });
 
 // This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026

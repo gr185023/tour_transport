@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Fun Tour</title>
+        <title>Fun Tour - Van and Car Rental</title>
         <meta name="description" content="">
         <meta name="description" content="Fun Tour - #1 Van and Car Rental in the Philippines">
         <meta name="HandheldFriendly" content="True">
@@ -20,6 +20,7 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
+        <link rel="fav icon" type="image/x-icon" href="favicon.ico" />
 
         <!-- Icons -->
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
