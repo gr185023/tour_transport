@@ -17,8 +17,8 @@ $_SESSION['tt']= 1;
         </script>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Fun Tour - Van and Car Rental</title>
-        <meta name="description" content="Fun Tour - #1 Van and Car Rental in the Philippines">
+        <title>Fun Tour - Van and Car Rental in the Philippines</title>
+        <meta name="description" content="Fun Tour - The #1 Van and Car Rental in the Philippines! Easiest and most convenient way to book your next van rental with your own personal driver.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
@@ -570,7 +570,7 @@ $_SESSION['tt']= 1;
                         <i class="ion-information-circled"></i>
                     </h5>
 
-                    <p>Fun tour is a travel booking site currently catered to Cebu City, Philippines (and will soon be available in Manila and the rest of the Philippines). We ensure you have a comfortable and convenient transportation to your chosen destinations in the city. We'll have your driver contact you thru text and/or call 24-hours before your booking date and time.
+                    <p>Fun tour is a travel booking site currently catered to Cebu City, Philippines (and will soon be available in Manila and the rest of the Philippines). We ensure you have a comfortable and convenient transportation to your chosen destinations in the city. We'll have your driver contact you through text and/or call 24-hours before your booking date and time.
                     </p>
 
                     <p>You can pay 10% or in full upon your booking. We require that you pay at least 10% of your total payment total upon booking. The rest is payable to your driver upon arrival at your final destination. You may cancel your booking at most 12 hours before your scheduled trip and we will refund your payment in full. Otherwise, we have the right to take 10% of your grand total payment or even forfeit a refund entirely.
