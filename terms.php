@@ -50,8 +50,8 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-    <div class="container"> 
-    	<div id="container">
+    <div class="tcontainer"> 
+    	<div id="tcontainer">
             <!-- toolbar -->
             <div id="toolbar" class="primary-bg-color z-depth-1">
                 <div class="open-left" data-activates="left-sidebar-slide-out">
