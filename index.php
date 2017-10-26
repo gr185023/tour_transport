@@ -26,7 +26,7 @@ $_SESSION['tt']= 1;
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
-        <link rel="fav icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="fav icon" type="image/x-icon" href="favicon.ico?" />
 
         <!-- Icons -->
         <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" media="all" rel="stylesheet" type="text/css">
@@ -46,8 +46,8 @@ $_SESSION['tt']= 1;
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         
-        <div class="container"> 
-            <form id="tourForm" class="container" action="values_receiver.php" method="post">
+        <div class="tcontainer"> 
+            <form id="tourForm" class="tcontainer" action="values_receiver.php" method="post">
                 <div id="summary-container">
                     <div id="cover-summary">
                         <!-- TOOLBAR COVER -->
@@ -103,7 +103,7 @@ $_SESSION['tt']= 1;
                                         </select>
                                     </div>
                                     <div class="book-button">
-                                        <button  type="button" class="waves-effect waves-light btn primary-bg-color primary-color block animated bouncein delay-6"> 
+                                        <button  type="button" class="waves-effect waves-light btn primary-bg-color block animated bouncein delay-6"> 
                                             BOOK NOW<i class="material-icons right">location_on</i>
                                         </button>
                                     </div>
@@ -435,7 +435,7 @@ $_SESSION['tt']= 1;
                                         <option value="ZW">Zimbabwe</option>
                                     </select>   
                                     <label class="active">Nationality*</label>                            
-                              </div>
+                                </div>
                             </div>    
                         </div>
 
@@ -443,7 +443,7 @@ $_SESSION['tt']= 1;
                             <div class="flex1 padding-top-8">
                                 <div class="margin-top-neg-16">
                                     <label for="pickupDate" class="active">Pickup Date*</label>
-                                    <input id="pickupDate" name="pickupDate" type="text" class="datepicker" data-value=""required>
+                                    <input id="pickupDate" name="pickupDate" type="text" class="datepicker" data-value="" required>
                                 </div>
                             </div>
                             <div class="flex1 padding-top-8">
@@ -513,7 +513,7 @@ $_SESSION['tt']= 1;
                         </div>
 
                         <div class="next-button">
-                            <input class="waves-effect waves-light btn-large light-blue darken-3 primary-color block animated bouncein delay-6" type="submit" value="GO">
+                            <input class="waves-effect waves-light btn-large light-blue darken-3 block animated bouncein delay-6" type="submit" value="GO">
                         </div>
 
                         <!-- footer -->
@@ -564,7 +564,7 @@ $_SESSION['tt']= 1;
                     <p>Fun tour is a travel booking site currently catered to Cebu City, Philippines (and will soon be available in Manila and the rest of the Philippines). We ensure you have a comfortable and convenient transportation to your chosen destinations in the city. We'll have your driver contact you thru text and/or call 24-hours before your booking date and time.
                     </p>
 
-                    <p>You can pay 10% or in full upon your booking. We require that you pay at least 10% of your total payment total upon booking. The rest is payable to your driver upon arrival to your final destination. You may cancel your booking at most 12 hours before your scheduled trip and we will refund your payment in full. Otherwise, we have the right to take 10% of your grand total payment or even forfeit a refund entirely.
+                    <p>You can pay 10% or in full upon your booking. We require that you pay at least 10% of your total payment total upon booking. The rest is payable to your driver upon arrival at your final destination. You may cancel your booking at most 12 hours before your scheduled trip and we will refund your payment in full. Otherwise, we have the right to take 10% of your grand total payment or even forfeit a refund entirely.
                     </p>
 
                     <p>If you wish to reschedule or make changes to any of your booking. Please email us at support@funtour.ph or text/call our local numbers at least three (3) hours of your scheduled booking. Please have your booking number ready for quick and convenient reference.
