@@ -573,7 +573,7 @@ $_SESSION['tt']= 1;
                     <p>Fun tour is a travel booking site currently catered to Cebu City, Philippines (and will soon be available in Manila and the rest of the Philippines). We ensure you have a comfortable and convenient transportation to your chosen destinations in the city. We'll have your driver contact you through text and/or call 24-hours before your booking date and time.
                     </p>
 
-                    <p>You can pay 10% or in full upon your booking. We require that you pay at least 10% of your total payment total upon booking. The rest is payable to your driver upon arrival at your final destination. You may cancel your booking at most 12 hours before your scheduled trip and we will refund your payment in full. Otherwise, we have the right to take 10% of your grand total payment or even forfeit a refund entirely.
+                    <p>You can pay 10% or in full upon your booking. We require that you pay at least 10% of your total payment upon booking. The rest is payable to your driver upon arrival at your final destination. You may cancel your booking at most 12 hours before your scheduled trip and we will refund your payment in full. Otherwise, we have the right to take 10% of your grand total payment or even forfeit a refund entirely.
                     </p>
 
                     <p>If you wish to reschedule or make changes to any of your booking. Please email us at support@funtour.ph or text/call our local numbers at least three (3) hours of your scheduled booking. Please have your booking number ready for quick and convenient reference.

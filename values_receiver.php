@@ -123,7 +123,8 @@ if(!isset($_SESSION['tt'])) {
     	echo $textBuyButton;
     }
     else {
-        echo "<script alert('We apologize but there seems to be an issue. We are working on it.') />";
+        echo "<script> alert('We apologize but there seems to be an issue booking your tour. Please try to book it again. If
+            you continue to experience this issue. Please call or email as at support@funtour.ph'); </script>";
         header("location: index.php");
         die;
     }
