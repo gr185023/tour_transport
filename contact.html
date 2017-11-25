@@ -66,42 +66,49 @@
         <h3 class="toppest-title">Contact Us</h3>
 
         <!-- Form Inputs --> 
-        <div class="form-container padding-horizontal-20">
-          <p>
-              If you have any concerns or for cancellation please fill out the form below or email us at <a href="mailto:support@funtour.ph?subject=Contact%20Us">support@funtour.ph</a>. You may also contact us at our local numbers.
-          </p>
-          <ul class="contact-numbers">
-            <li><i class="material-icons left small">phone</i>(032) 348 0049</li>
-            <li><i class="material-icons left small">phone_iphone</i>+63 927 31 66848</li>
-          </ul>
-          <div>
-            <div class="input-field animated fadeInUp padding-vertical-10">
-              <input id="first_name" type="text" class="validate" required>
-              <label for="first_name">Name*</label>
+        <form action="javascript:void(0);" method="post">
+          <div class="form-container padding-horizontal-20">
+            <p>
+                If you have any concerns or for cancellation please fill out the form below or email us at <a href="mailto:support@funtour.ph?subject=Contact%20Us">support@funtour.ph</a>. You may also contact us at our local numbers.
+            </p>
+            <ul class="contact-numbers">
+              <li><i class="material-icons left small">phone</i>(032) 348 0049</li>
+              <li><i class="material-icons left small">phone_iphone</i>+63 927 31 66848</li>
+            </ul>
+            <div>
+              <div class="input-field animated fadeInUp padding-vertical-10">
+                <input id="ttname" name="ttname" type="text" class="validate" required>
+                <label for="ttname">Name*</label>
+              </div>
+            </div>
+            <div class="input-field animated fadeInUp delay-2 padding-vertical-10">
+              <input id="email" name="email" type="email" class="validate" required>
+              <label for="email">Email*</label>
+            </div>
+            <div class="input-field animated fadeInUp delay-3 padding-vertical-10">
+              <input id="telephone" name="telephone" type="text" class="validate">
+              <label for="telephone">Phone Number</label>
+            </div>
+            <div class="input-field animated fadeInUp delay-3 padding-vertical-10">
+              <input id="bookingNumber" name="bookingNumber" type="text" class="validate">
+              <label for="bookingNumber">Booking Number</label>
+            </div>
+
+            <div class="input-field animated fadeInUp delay-3">
+              <input id="subject" name="subject" type="text" class="validate" required>
+              <label for="subject">Subject*</label>
+            </div>
+            
+            <div class="input-field animated fadeInUp delay-3 padding-vertical-10">
+              <textarea class="materialize-textarea" id="textarea1" name="ttmessage" required></textarea> 
+              <label for="textarea1">Write your message here</label>
+            </div>
+
+            <div class="next-button">
+              <input type="submit" value="SEND" class="waves-effect waves-light btn-large light-blue darken-3 block animated bouncein delay-6"> </input>
             </div>
           </div>
-          <div class="input-field animated fadeInUp delay-2 padding-vertical-10">
-            <input id="email" type="email" required>
-            <label for="email">Email*</label>
-          </div>
-          <div class="input-field animated fadeInUp delay-3 padding-vertical-10">
-            <input id="telephone" type="text" class="validate">
-            <label for="telephone">Phone Number</label>
-          </div>
-          <div class="input-field animated fadeInUp delay-3 padding-vertical-10">
-            <input id="bookingNumber" type="text" class="validate">
-            <label for="bookingNumber">Booking Number</label>
-          </div>
-          
-          <div class="input-field animated fadeInUp delay-3 padding-vertical-10">
-            <textarea class="materialize-textarea" id="textarea1" required></textarea> 
-            <label for="textarea1">Write your message here</label>
-          </div>
-
-          <div class="next-button">
-            <a class="waves-effect waves-light btn-large light-blue darken-3 block animated bouncein delay-6" href="contact.html">SEND <i class="material-icons ">send</i></a>
-          </div>
-        </div>
+        </form>
         <!-- End of Form -->
         
         <!-- footer -->
@@ -142,6 +149,26 @@
     <script src="js/plugins.js"></script>
     <script src="js/vendor/materialize.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script type="text/javascript">
+      $("form").submit(function() {
+          var data = $(this).serialize();
+          $.ajax({
+            url : 'email_send.php',
+            type : 'POST',
+            data : data,
+            success : function(result) {              
+                alert(result);
+                location.reload();
+            },
+            error : function(request,error)
+            {
+                console.log("Request: "+JSON.stringify(request)+"error: " + JSON.stringify(error));
+            }
+          });
+          return(false);
+      });
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
