@@ -260,10 +260,11 @@ $(document).ready(function() {
     var top = $(window).scrollTop()+$(window).height();
 
     // Click on the arrow will make the page scroll and hide the header image
-    $('.book-button').on('click',function(e){
-        e.preventDefault();
-        smoothScrollTo('#form-container');
-    });
+    ///--
+    // $('.book-button').on('click',function(e){
+    //     e.preventDefault();
+    //     smoothScrollTo('#form-container');
+    // });
 
     $('select').material_select();
 

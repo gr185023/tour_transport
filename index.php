@@ -113,7 +113,7 @@ $_SESSION['tt']= 1;
                                     </div>
                                     <div class="book-button">
                                         <button  type="button" class="waves-effect waves-light btn primary-bg-color block animated bouncein delay-6"> 
-                                            BOOK NOW<i class="material-icons right">location_on</i>
+                                            COMING SOON...<i class="material-icons right">location_on</i>
                                         </button>
                                     </div>
                                 </div>
